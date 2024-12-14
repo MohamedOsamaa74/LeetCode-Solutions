@@ -1,7 +1,12 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        set<int>st(nums.begin(), nums.end());
-        return !(st.size()==nums.size());
+        map<int, int>mp;
+        for(int num : nums){
+            if(mp[num]>=1)
+                return true;
+            mp[num]++;
+        }
+        return false;
     }
 };
